@@ -1,0 +1,59 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.slider{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+img{
+    width: 90%;
+    height: 80%;
+    object-fit: cover;
+}
+.caption {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+}
+.slider .row{
+    display: flex;
+    width: calc(100px * 18);
+    animation: slide 3s linear infinite;
+}
+@keyframes slide{
+    0%{
+        transform: translateX(0);
+    }
+    0%{
+        transform: translateX(calc(60px * 3));
+    }
+    
+}
+img:hover{
+    transform: translateZ(15px);
+    transition: 4s;
+}
+.slide .column{
+    perspective: 100px;
+}
+.column{
+    text-align: center;
+}

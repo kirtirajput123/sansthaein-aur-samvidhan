@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constitution Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="chatbot.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="header">
+            Constitution Chatbot
+        </div>
+        <div class="chat-box" id="chat-box">
+            <!-- Messages will be appended here -->
+        </div>
+        <div class="input-box">
+            <input type="text" id="user-input" placeholder="Ask about an article related to Legislature, Executive, or Judiciary..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Knowledge base with articles related to Legislature, Executive, and Judiciary
+        const knowledgeBase = {
+            'article 79': 'Article 79 of the Indian Constitution establishes the Parliament of India, which consists of the President and two houses: the Council of States (Rajya Sabha) and the House of the People (Lok Sabha).',
+            'article 80': 'Article 80 outlines the composition of the Rajya Sabha, the upper house of Parliament, with members from states, union territories, and Presidential nominees.',
+            'article 124': 'Article 124 establishes the Supreme Court of India and explains the appointment of Supreme Court judges by the President.',
+            'article 143': 'Article 143 gives the President the power to consult the Supreme Court for advisory opinions on legal matters.',
+            'article 53': 'Article 53 vests executive power in the President of India, exercised directly or through officers subordinate to them.',
+            'article 74': 'Article 74 establishes the Council of Ministers to aid and advise the President in the exercise of their functions.',
+            'article 148': 'Article 148 provides for the office of the Comptroller and Auditor General of India, who audits accounts of the government and its entities.',
+            'article 214': 'Article 214 provides for a High Court for each state, which serves as the principal judicial body in the state.',
+            'article 226': 'Article 226 grants High Courts the power to issue certain writs to protect fundamental rights and for other purposes.',
+            'article 324': 'Article 324 provides for the Election Commission of India, responsible for the conduct of free and fair elections.',
+            // Add more articles here as needed
+        };
+
+        function appendMessage(message, className) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message ' + className;
+            messageElement.innerHTML = `<p>${message}</p>`;
+            document.getElementById('chat-box').appendChild(messageElement);
+            document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('user-input').value;
+            if (userInput.trim() === '') return;
+
+            appendMessage(userInput, 'user');
+            document.getElementById('user-input').value = '';
+
+            const response = getResponse(userInput.toLowerCase());
+
+            setTimeout(() => {
+                appendMessage(response, 'bot');
+            }, 1000);
+        }
+
+        function getResponse(input) {
+            // Check for specific articles in the knowledge base
+            for (const article in knowledgeBase) {
+                if (input.includes(article)) {
+                    return knowledgeBase[article];
+                }
+            }
+            // Default message if no matching article is found
+            return 'Sorry, I can only answer questions related to specific articles under Legislature, Executive, and Judiciary. Please try asking about a specific article (e.g., "Article 79").';
+        }
+    </script>
+</body>
+</html>

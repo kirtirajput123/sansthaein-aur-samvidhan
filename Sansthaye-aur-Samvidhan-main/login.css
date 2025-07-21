@@ -1,0 +1,195 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('https://static.vecteezy.com/system/resources/previews/014/469/019/original/constitution-day-of-india-and-national-constitution-day-free-vector.jpg') no-repeat center center fixed; /* Background Image */
+    background-size: cover; 
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Login Box Styling */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 13px;
+    color: #333;
+    font-size: 24px;
+}
+h6 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Textbox Styling */
+.textbox {
+    margin-bottom: 15px;
+}
+
+.textbox input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.textbox input:focus {
+    border-color: #5c9dff;
+}
+
+/* Button Styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background-color:peachpuff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #96bde4;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 10px;
+}
+
+.forgot-password a {
+    color: #5c9dff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+/* Sign Up Link */
+.signup p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signup a {
+    color: #5c9dff;
+    text-decoration: none;
+}
+
+.signup a:hover {
+    text-decoration: underline;
+}
+
+/* Social Login Section */
+.social-login {
+    margin-top: 30px;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.social-btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.social-btn {
+    flex: 1;  /* Makes all buttons take equal space */
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.google-btn {
+    background-color: peachpuff; /* Google Red */
+    color: black;
+}
+
+.google-btn:hover {
+    background-color:#9ecee0;
+}
+
+.facebook-btn {
+    background-color:peachpuff; /* Facebook Blue */
+    color:black;
+}
+
+.facebook-btn:hover {
+    background-color:#9ecee0;
+}
+
+.twitter-btn {
+    background-color:peachpuff; /* Twitter Blue */
+    color:black;
+}
+
+.twitter-btn:hover {
+    background-color: #9ecee0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 400px) {
+    .login-box {
+        width: 80%;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .textbox input {
+        padding: 12px;
+    }
+    .btn {
+        padding: 12px;
+    }
+
+    /* Stack buttons on smaller screens */
+    .social-btns {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        gap: 10px;
+    }
+
+    .social-btn {
+        flex: none;  /* Remove equal space distribution for stacked buttons */
+        width: 100%; /* Make buttons full width on mobile */
+    }
+}
